@@ -1,0 +1,32 @@
+Array:
+  - ArrayOne
+  - enc=zdJmbejr8IOlPa2y6fcfbDfL8PJcyDwbD8gUQRRC66qjqbjEqFVbcW9Q5rdW/nGq
+  - ArrayThree
+  - enc=W17YP4z85CTLr5FLHXgq+DrB+mKCJ7+xLUJRzhn8Yg2AsFPhe0U8OR30jcF1KJef
+  - ArrayFive
+  - enc=kdgCjoEjrFoLU6t50SQUl33qomKG06Jjne41GPYt3iJ/PgQNS5XcO+MJdSU0Bv7T
+
+Map:
+  One: MapOne
+  Two: enc=bHkDUDo8WHnrlp9OJEQlF0vgS1W/nwVIlQnJ3ru31mOjnXCb4HV/J2Kw03f0dj2J
+  Three: MapThree
+  Four: enc=jn1fE6vz6oijlXmshXKrjvmLW1LuVtU8d5/y+XwkNsUc3jZv1qEQSdrmtgebRJdq
+  Five: MapFive
+  Six: enc=akA+ZS96XyCANga/nAHdP1FiavDkVJi7evkAcOcDJtBnphYZQ0R5KZcYzPrGS6nw
+
+Hybrid:
+  Array:
+    - HybridArrayOne
+    - enc=wcPx1f1kjspd4L+enhs76saUoXJHRTEVxIdIQlq13XkIRfqNDGSyD2Yxir+3iLBk
+    - HybridArrayThree
+    - enc=QJwQPiiMH4iFzbJiu3CDUNSdi5yW13V9UVGv6tHbSDhkFy5Ja96ClESLyVW5EBl6
+    - HybridArrayFive
+    - enc=gtGy3x4nvN4y1I1yRuUa5h6lHFMP3by89SI4najdOvddiWl9Q/LedmvcypoMGAgp
+  Map:
+    - Map:
+        One: HybridMapOne
+        Two: enc=IevZFl5Ym4WUVC4Dj0mEUoFrSUBEEPML+/awHp/R7Dj6GsNHV44ny5N5Gz3Rylxw
+        Three: HybridMapThree
+        Four: enc=ugOk6BY9nR9lU7x/uFyQOOOfELPMjOPQe+oIt+H+ESig14+rosL23P6f7KyTNmaU
+        Five: HybridMapFive
+        Six: enc=V9F7/hg/DZHQEfwHaS3BsgB9JdBKaiu7Z3W/ZKRaFCPq0D5/M0QXSEZ4NM+W6Ig3

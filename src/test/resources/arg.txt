@@ -1,0 +1,4 @@
+One=ValueOne
+TWO=ValueTWO
+three=Valuethree
+FoUr=ValueFoUr
