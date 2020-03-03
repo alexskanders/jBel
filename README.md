@@ -101,7 +101,7 @@ AtSQL atSQL = AtSQLFactory
 ~~~java
 Resulted<Integer> resultedQuery = atSQL
     .createQuery("INSERT INTO student (id, name, date) VALUES (?,?, ?);")
-    .set(0, "Student", Timestamp.from(Instant.now()))
+    .setList(0, "Student", Timestamp.from(Instant.now()))
     .executeUpdate();
     
 if (resultedQuery.notValid())
@@ -115,7 +115,7 @@ else
 ~~~java
 AtSQLQuery atSQLQuery = atSQL
     .createQuery("SELECT name FROM student WHERE id = ?;")
-    .set(Types.INTEGER, 0); // may use .set(Object) and .set(Type, Object) interchangabley
+    .setList(Types.INTEGER, 0); // may use .setList(Object...) or .set(Type, Object) for each value
 
 try (Resulted<AtSQLResult> resultedQuery = atSQLQuery.executeQuery()) // Closes connectiontion after work
 {

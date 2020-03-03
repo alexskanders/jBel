@@ -79,15 +79,6 @@ public class AtSQLMultiBatch
         return this;
     }
 
-    public AtSQLMultiBatch set(Object param)
-    {
-        Verify.notTrue(listIndex == -1, "Must set a query before setting params!");
-
-        atSQLParamList.get(listIndex).set(param);
-
-        return this;
-    }
-
     public Resulted<int[]> executeBatch()
     {
         Verify.notTrue(closed, "SQLQuery cannot be called after closed");

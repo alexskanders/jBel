@@ -70,17 +70,6 @@ public class AtSQLBatch
         return this;
     }
 
-
-    public AtSQLBatch add(Object value)
-    {
-        if (singleList == null)
-            singleList = new AtSQLParamList();
-
-        singleList.set(value);
-
-        return this;
-    }
-
     public AtSQLBatch pushList()
     {
         Verify.isTrue(singleList != null, "addBatchList() cannot be called until add() is used to start a list");

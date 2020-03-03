@@ -18,18 +18,21 @@ package com.skanders.jbel.atsql;
 
 import com.skanders.jbel.Resources;
 import com.skanders.jbel.result.Resulted;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.sql.Types;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.fail;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AtSQLMultiBatchTest
 {
-    @BeforeAll
-    public static void clearDb()
+    @Test
+    @Order(1)
+    public void batchMultiInsertInitialTest()
     {
         String drop =
                 "DROP TABLE IF EXISTS student;";
@@ -47,18 +50,17 @@ public class AtSQLMultiBatchTest
         Resulted<Integer> resultedDrop =
                 Resources.AT_SQL.createQuery(drop).executeUpdate();
 
-        if (resultedDrop.notValid())
-            fail("Could not drop student table");
+        assertFalse(resultedDrop.notValid());
 
         Resulted<Integer> resultedCreate =
                 Resources.AT_SQL.createQuery(create).executeUpdate();
 
-        if (resultedCreate.notValid())
-            fail("Could not drop student table");
+        assertFalse(resultedCreate.notValid());
     }
 
     @Test
-    public void batchInsert()
+    @Order(2)
+    public void batchInsertTest()
     {
         String query = "\n" +
                 "INSERT INTO student \n" +
@@ -79,34 +81,8 @@ public class AtSQLMultiBatchTest
     }
 
     @Test
-    public void batchInsertAdd()
-    {
-        String query = "\n" +
-                "INSERT INTO student \n" +
-                "     (id, name, age, major, year) \n" +
-                "VALUES \n" +
-                "     (?,?,?,?,?)";
-
-        AtSQLMultiBatch atSQLBatch = Resources.AT_SQL.createMultiBatch();
-
-        for (int i = 6; i <= 10; i++) {
-            atSQLBatch
-                    .setQuery(query)
-                    .set(i)
-                    .set("Student" + i)
-                    .set(i + 17)
-                    .set("CS")
-                    .set(i);
-        }
-
-
-        Resulted<int[]> resulted = atSQLBatch.executeBatch();
-
-        assertFalse(resulted.notValid());
-    }
-
-    @Test
-    public void batchInsertAddPair()
+    @Order(3)
+    public void batchInsertAddPairTest()
     {
         String query = "\n" +
                 "INSERT INTO student \n" +

@@ -62,13 +62,6 @@ public class AtSQLQuery
         return this;
     }
 
-    public AtSQLQuery set(Object param)
-    {
-        atSQLParamList.set(param);
-
-        return this;
-    }
-
     public Resulted<Integer> executeUpdate()
     {
         Verify.notTrue(closed, "SQLQuery cannot be called after closed");

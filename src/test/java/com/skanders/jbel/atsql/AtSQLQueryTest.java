@@ -18,18 +18,21 @@ package com.skanders.jbel.atsql;
 
 import com.skanders.jbel.Resources;
 import com.skanders.jbel.result.Resulted;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.sql.Types;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.fail;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AtSQLQueryTest
 {
-    @BeforeAll
-    public static void clearDb()
+    @Test
+    @Order(1)
+    public void queryInitialTest()
     {
         String drop =
                 "DROP TABLE IF EXISTS student;";
@@ -47,17 +50,16 @@ public class AtSQLQueryTest
         Resulted<Integer> resultedDrop =
                 Resources.AT_SQL.createQuery(drop).executeUpdate();
 
-        if (resultedDrop.notValid())
-            fail("Could not drop student table");
+        assertFalse(resultedDrop.notValid());
 
         Resulted<Integer> resultedCreate =
                 Resources.AT_SQL.createQuery(create).executeUpdate();
 
-        if (resultedCreate.notValid())
-            fail("Could not drop student table");
+        assertFalse(resultedCreate.notValid());
     }
 
     @Test
+    @Order(2)
     public void querySetListTest()
     {
         String query = "\n" +
@@ -75,27 +77,7 @@ public class AtSQLQueryTest
     }
 
     @Test
-    public void querySetTest()
-    {
-        String query = "\n" +
-                "INSERT INTO student \n" +
-                "     (id, name, age, major, year) \n" +
-                "VALUES \n" +
-                "     (?,?,?,?,?)";
-
-        AtSQLQuery atSQLQuery = Resources.AT_SQL.createQuery(query)
-                .set(2)
-                .set("Student2")
-                .set(19)
-                .set("CS")
-                .set(2);
-
-        Resulted<Integer> resulted = atSQLQuery.executeUpdate();
-
-        assertFalse(resulted.notValid());
-    }
-
-    @Test
+    @Order(3)
     public void querySetTypeTest()
     {
         String query = "\n" +
