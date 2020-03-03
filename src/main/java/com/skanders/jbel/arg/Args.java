@@ -24,8 +24,8 @@ public class Args
 {
     private Hashtable<String, String> argTable;
 
-    private static final String MISSING = "";
-    private static final String FLAG    = "";
+    private static final String MISSING = new String("_MISSING");
+    private static final String FLAG    = new String("_FLAG");
     private static final String PREFIX  = "-";
 
     private Args(Hashtable<String, String> argTable)
