@@ -1,4 +1,5 @@
 # jBel
+## The Java BackEnd Library
 
 [![license badge](https://img.shields.io/github/license/alexskanders/jBel?logo=apache)](https://github.com/alexskanders/jBel/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.skanders.jbel/jbel)](https://search.maven.org/search?q=g:%22com.skanders.jbel%22%20AND%20a:%22jbel%22)
