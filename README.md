@@ -1,4 +1,4 @@
-# jBel: <sub><sub><sub><sub>The java Backend library
+# jBel[☕📚]: <sub><sub><sub><sub>The java Backend library
     
 [![license badge](https://img.shields.io/github/license/alexskanders/jBel?logo=apache)](https://github.com/alexskanders/jBel/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.skanders.jbel/jbel)](https://search.maven.org/search?q=g:%22com.skanders.jbel%22%20AND%20a:%22jbel%22)
@@ -28,16 +28,17 @@ Gradle:
 <br/>
 
 # Tools
-
-- [💬Arg](#Arg)
-- [🤖AtSQL](#AtSQL)
-- [📝Bytes](#Bytes)
-- [🎛Config](#Config)
-- [💱Convert](#Convert)
-- [📦Model](#Model)
-- [🧾Result](#Result)
-- [📩Socket](#Socket)
-- [🛠Worker](#Worker)
+ | 🧰 | Link | Description |
+ | -- | -- | -- |
+ | 💬 | [Arg](#Arg) | Easily parse startup arguments |
+ | 🤖 | [AtSQL](#AtSQL) | Autonomus SQL for easier SQL statments with Resouce management with HikariCP |
+ | 📝 | [Bytes](#Bytes) | Generate, Encode, Decode bytes and random bytes with 16, 32, 64 bases provided by Google Guava |
+ | 🎛 | [Config](#Config) | Config file parsers with easy decryption with JASYPT |
+ | 💱 | [Convert](#Convert) | Convert from and to JsonNodes and POJO's to many primitive types |
+ | 📦 | [Model](#Model) | Package Backend request and responses easily with Abstract model bases |
+ | 🧾 | [Result](#Result) | Manage handler results and notify users quickly |
+ | 📩 | [Socket](#Socket) | Communicate between RESTful services easier and quickly |
+ | 🛠 | [Worker](#Worker) | Automate timed, or task based jobs easily |
 <br/>
 
 # 💬 Arg
@@ -65,10 +66,12 @@ public static main void(String[] args) // args = ["-file", "myFile.txt", "-type"
  - Read lines from a file with automatic variable 'zero out' 
  - All values read in as char[] then cleared after `.close()` or `try-with-resources`
 
-~~~java
+~~~properties
 // Argfile.txt:
-// username=myUserName
-// password=SecretPassword
+username=myUserName
+password=SecretPassword
+~~~
+~~~java
 public static main void(String[] args)
 {
     String username;
@@ -89,7 +92,7 @@ public static main void(String[] args)
 <br/>
 <br/>
 
-# 🤖 AtSQL
+# 🤖 AtSQL: Autonomous SQL
 
 #### AtSQLFactory
 
@@ -219,27 +222,29 @@ String base32 = SecureBytes.gen32(64);
 - Allows for easily reading in encrypted values using JASYPT
 - Powered by Jackson for parsing, and JASYPT for decryption
 
+~~~yaml
+# config.yaml
+keys:
+  key: enc=SECRETKEYENCRYPTED
+value:
+  stringRequired: StringValue!
+  intOptional: 100
+map:
+  valueOne: 1
+  valueTwo: 2
+list:
+  - 1
+  - 2
+pojo:
+  value:
+  map:
+    valueOne: 1
+    valueTwo: 2
+  array:
+    - 1
+    - 2
+~~~
 ~~~java
-// config.yaml
-// keys:
-//   key: enc=SECRETKEYENCRYPTED
-// value:
-//   stringRequired: StringValue!
-//   intOptional: 100
-// map:
-//   valueOne: 1
-//   valueTwo: 2
-// list:
-//   - 1
-//   - 2
-// pojo:
-//   value:
-//   map:
-//     valueOne: 1
-//     valueTwo: 2
-//   array:
-//     - 1
-//     - 2
 Config config = Config.fromEncrypted("config.yaml", "PBEWITHHMACSHA512ANDAES_256", "Password");
 
 String key = Config.getReqStr("keys.key");
@@ -256,7 +261,7 @@ POJO pojo = Config.getPOJO("pojo", POJO.class);
 <br/>
 <br/>
 
-# 🎛 Convert
+# 💱 Convert
 
 #### FromJson
 
@@ -265,25 +270,27 @@ POJO pojo = Config.getPOJO("pojo", POJO.class);
 - Mapping to Boolean, Integer, Long, Double, String, Lists, Maps, POJOs
 - Powered by Jackson
 
+~~~json
+//student.json:
+{
+   student: {
+        id: 0,
+        name: "Student",
+        classes: [{
+            cs: {
+                name: "Computer Science",
+                units: 4
+            }
+            cs2: {
+                name: "Computer Science Two",
+                units: 4
+            }
+        ]
+   }
+}
+~~~
 ~~~java
-//json:
-// {
-//    student: {
-//         id: 0,
-//         name: "Student",
-//         classes: [{
-//             cs: {
-//                 name: "Computer Science",
-//                 units: 4
-//             }
-//             cs2: {
-//                 name: "Computer Science Two",
-//                 units: 4
-//             }
-//         ]
-//    }
-// }
-JsonNode node = getJsonNode();
+JsonNode node = ToPOJO.fromJson(new File("student.json"), JsonNode.class);
 
 // When grabbing multiple entitys from same node use FromNode.toNode() to make parsing more effiecent
 String str = FromNode.toStr(node, "student.name");
