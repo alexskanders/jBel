@@ -24,15 +24,37 @@ import org.junit.jupiter.api.Test;
 import java.sql.Types;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class AtSQLQueryTest
 {
     @BeforeAll
     public static void clearDb()
     {
-        String query = "DELETE FROM student WHERE id > 0;";
+        String drop =
+                "DROP TABLE IF EXISTS student;";
 
-        Resources.AT_SQL.createQuery(query).executeUpdate();
+        String create =
+                "CREATE TABLE student " +
+                        "(" +
+                        "    id    INT         NOT NULL PRIMARY KEY," +
+                        "    name  VARCHAR(64) NOT NULL," +
+                        "    age   INT         NOT NULL," +
+                        "    major VARCHAR(64) NULL," +
+                        "    year  INT         NOT NULL" +
+                        ");";
+
+        Resulted<Integer> resultedDrop =
+                Resources.AT_SQL.createQuery(drop).executeUpdate();
+
+        if (resultedDrop.notValid())
+            fail("Could not drop student table");
+
+        Resulted<Integer> resultedCreate =
+                Resources.AT_SQL.createQuery(create).executeUpdate();
+
+        if (resultedCreate.notValid())
+            fail("Could not drop student table");
     }
 
     @Test

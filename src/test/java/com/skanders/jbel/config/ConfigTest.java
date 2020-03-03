@@ -17,13 +17,15 @@
 package com.skanders.jbel.config;
 
 
-import com.skanders.jbel.Resources;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ConfigTest
 {
@@ -31,10 +33,30 @@ public class ConfigTest
     private static final String   PASS   = "PASSWORD";
     private static final String[] NUMBER = new String[]{"One", "Two", "Three", "Four", "Five", "Six"};
 
+    private String getFilePath(String fileName)
+    {
+        try {
+            URL fileUrl = getClass().getClassLoader().getResource(fileName);
+
+            if (fileUrl == null)
+                fail("File not found");
+
+            File file = new File(fileUrl.getFile());
+
+            return file.getAbsolutePath();
+
+        } catch (Exception e) {
+            fail("Ran into exception getting file");
+
+            return null;
+        }
+
+    }
+
     @Test
     public void testEncryptedFileArray()
     {
-        final String file = Resources.getFilePath("test-encrypted-config.yaml");
+        final String file = getFilePath("test-encrypted-config.yaml");
 
         Config prop = Config.fromEncrypted(file, ALGO, PASS);
 
@@ -53,7 +75,7 @@ public class ConfigTest
     @Test
     public void testEncryptedFileMap()
     {
-        final String file = Resources.getFilePath("test-encrypted-config.yaml");
+        final String file = getFilePath("test-encrypted-config.yaml");
 
         Config prop = Config.fromEncrypted(file, ALGO, PASS);
 

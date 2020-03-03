@@ -16,48 +16,20 @@
 
 package com.skanders.jbel;
 
-import com.skanders.jbel.arg.ArgFile;
 import com.skanders.jbel.atsql.AtSQL;
 import com.skanders.jbel.atsql.AtSQLFactory;
-
-import java.net.URISyntaxException;
-import java.net.URL;
-
-import static org.junit.jupiter.api.Assertions.fail;
 
 public class Resources
 {
     public static final AtSQL AT_SQL;
 
     static {
-        ArgFile argFile = ArgFile.parse(getFilePath("db.txt"));
-
-        System.out.println(argFile.copyAsString("jdbcUrl"));
-
         AT_SQL = AtSQLFactory.newInstance(
-                argFile.copyAsString("username"),
-                argFile.copyAsString("password"),
+                System.getenv("DBUSR"),
+                System.getenv("DBPSW"),
                 30000, 10)
-                .withJdbcUrl(argFile.copyAsString("jdbcUrl"))
+                .withJdbcUrl(System.getenv("DBURL"))
                 .withMySQLPerformanceSettings()
                 .build();
-    }
-
-    public static String getFilePath(String fileName)
-    {
-        try {
-            URL fileUrl = Resources.class.getClassLoader().getResource(fileName);
-
-            if (fileUrl != null)
-                return fileUrl.toURI().getPath();
-            else
-                fail("File not found");
-
-        } catch (URISyntaxException e) {
-            fail("File not found");
-
-        }
-
-        return null;
     }
 }

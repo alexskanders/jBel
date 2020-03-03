@@ -16,17 +16,40 @@
 
 package com.skanders.jbel.arg;
 
-import com.skanders.jbel.Resources;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.net.URL;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class ArgTest
 {
+    private String getFilePath(String fileName)
+    {
+        try {
+            URL fileUrl = getClass().getClassLoader().getResource(fileName);
+
+            if (fileUrl == null)
+                fail("File not found");
+
+            File file = new File(fileUrl.getFile());
+
+            return file.getAbsolutePath();
+
+        } catch (Exception e) {
+            fail("Ran into exception getting file");
+
+            return null;
+        }
+
+    }
+
     @Test
     public void argFile()
     {
-        ArgFile argFile = ArgFile.parse(Resources.getFilePath("arg.txt"));
+        ArgFile argFile = ArgFile.parse(getFilePath("arg.txt"));
 
         assertEquals("ValueOne", argFile.copyAsString("One"));
         assertEquals("ValueTWO", argFile.copyAsString("TWO"));
