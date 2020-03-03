@@ -2,7 +2,7 @@
 
 [![license badge](https://img.shields.io/github/license/alexskanders/jBel?logo=apache)](https://github.com/alexskanders/jBel/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.skanders.jbel/jBel)](https://search.maven.org/search?q=g:%22com.skanders.jbel%22%20AND%20a:%22jbel%22)
-[![javadoc](https://javadoc.io/badge2/com.skanders.jbel/jbel/javadoc.svg)](https://javadoc.io/doc/com.skanders.service/jbel)
+[![javadoc](https://javadoc.io/badge2/com.skanders.jbel/jbel/javadoc.svg)](https://javadoc.io/doc/com.skanders.jbel/jbel)
 
 Maven:
 
