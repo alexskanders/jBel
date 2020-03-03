@@ -5,11 +5,9 @@ jdk:
 
 services:
   - mysql
-  -
+
 before_install:
   - mysql -e 'CREATE DATABASE test;'
 
 env:
-  - username=travis
-  - password=
-  - jdbcUrl=jdbc:mysql://127.0.0.1:3306/test
+  - DBUSR=travis DBPSW= DBURL=jdbc:mysql://127.0.0.1:3306/test
