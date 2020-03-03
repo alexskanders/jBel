@@ -44,46 +44,6 @@ public class FromNode
     }
 
     /**
-     * Retrieves the optional value as a Integer
-     *
-     * @return the value as a Integer, or null if not found
-     */
-    public static Integer toInt(JsonNode node)
-    {
-        return node.asInt();
-    }
-
-    /**
-     * Retrieves the optional value as a Long
-     *
-     * @return the value as a Long, or null if not found
-     */
-    public static Long toLong(JsonNode node)
-    {
-        return node.asLong();
-    }
-
-    /**
-     * Retrieves the optional value as a Double
-     *
-     * @return the value as a Double, or null if not found
-     */
-    public static Double toDouble(JsonNode node)
-    {
-        return node.asDouble();
-    }
-
-    /**
-     * Retrieves the optional value as a String
-     *
-     * @return the value as a String, or null if not found
-     */
-    public static String toStr(JsonNode node)
-    {
-        return node.asText();
-    }
-
-    /**
      * Retrieves the optional value as a Boolean
      *
      * @param path dot delimited path to value in yaml
@@ -97,58 +57,6 @@ public class FromNode
     }
 
     /**
-     * Retrieves the optional value as a Integer
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a Integer, or null if not found
-     */
-    public static Integer toInt(JsonNode node, String path)
-    {
-        JsonNode value = toNode(node, path);
-
-        return value == null ? null : toInt(value);
-    }
-
-    /**
-     * Retrieves the optional value as a Long
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a Long, or null if not found
-     */
-    public static Long toLong(JsonNode node, String path)
-    {
-        JsonNode value = toNode(node, path);
-
-        return value == null ? null : toLong(value);
-    }
-
-    /**
-     * Retrieves the optional value as a Double
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a Double, or null if not found
-     */
-    public static Double toDouble(JsonNode node, String path)
-    {
-        JsonNode value = toNode(node, path);
-
-        return value == null ? null : toDouble(value);
-    }
-
-    /**
-     * Retrieves the optional value as a String
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a String, or null if not found
-     */
-    public static String toStr(JsonNode node, String path)
-    {
-        JsonNode value = toNode(node, path);
-
-        return value == null ? null : toStr(value);
-    }
-
-    /**
      * Retrieves the optional value as a Boolean
      *
      * @param path         dot delimited path to value in yaml
@@ -158,62 +66,6 @@ public class FromNode
     public static Boolean toBool(JsonNode node, String path, Boolean defaultValue)
     {
         Boolean value = toBool(node, path);
-
-        return value == null ? defaultValue : value;
-    }
-
-    /**
-     * Retrieves the optional value as a Integer
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a Integer, or defaultValue if not found
-     */
-    public static Integer toInt(JsonNode node, String path, Integer defaultValue)
-    {
-        Integer value = toInt(node, path);
-
-        return value == null ? defaultValue : value;
-    }
-
-    /**
-     * Retrieves the optional value as a Long
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a Long, or defaultValue if not found
-     */
-    public static Long toLong(JsonNode node, String path, Long defaultValue)
-    {
-        Long value = toLong(node, path);
-
-        return value == null ? defaultValue : value;
-    }
-
-    /**
-     * Retrieves the optional value as a Double
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a Double, or defaultValue if not found
-     */
-    public static Double toDouble(JsonNode node, String path, Double defaultValue)
-    {
-        Double value = toDouble(node, path);
-
-        return value == null ? defaultValue : value;
-    }
-
-    /**
-     * Retrieves the optional value as a String
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a String, or defaultValue if not found
-     */
-    public static String toStr(JsonNode node, String path, String defaultValue)
-    {
-        String value = toStr(node, path);
 
         return value == null ? defaultValue : value;
     }
@@ -235,6 +87,43 @@ public class FromNode
     }
 
     /**
+     * Retrieves the optional value as a Integer
+     *
+     * @return the value as a Integer, or null if not found
+     */
+    public static Integer toInt(JsonNode node)
+    {
+        return node.asInt();
+    }
+
+    /**
+     * Retrieves the optional value as a Integer
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a Integer, or null if not found
+     */
+    public static Integer toInt(JsonNode node, String path)
+    {
+        JsonNode value = toNode(node, path);
+
+        return value == null ? null : toInt(value);
+    }
+
+    /**
+     * Retrieves the optional value as a Integer
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a Integer, or defaultValue if not found
+     */
+    public static Integer toInt(JsonNode node, String path, Integer defaultValue)
+    {
+        Integer value = toInt(node, path);
+
+        return value == null ? defaultValue : value;
+    }
+
+    /**
      * Retrieves the required value as a Integer
      *
      * @param path dot delimited path to value in yaml
@@ -248,6 +137,43 @@ public class FromNode
         requiredValue(path, value);
 
         return value;
+    }
+
+    /**
+     * Retrieves the optional value as a Long
+     *
+     * @return the value as a Long, or null if not found
+     */
+    public static Long toLong(JsonNode node)
+    {
+        return node.asLong();
+    }
+
+    /**
+     * Retrieves the optional value as a Long
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a Long, or null if not found
+     */
+    public static Long toLong(JsonNode node, String path)
+    {
+        JsonNode value = toNode(node, path);
+
+        return value == null ? null : toLong(value);
+    }
+
+    /**
+     * Retrieves the optional value as a Long
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a Long, or defaultValue if not found
+     */
+    public static Long toLong(JsonNode node, String path, Long defaultValue)
+    {
+        Long value = toLong(node, path);
+
+        return value == null ? defaultValue : value;
     }
 
     /**
@@ -267,6 +193,43 @@ public class FromNode
     }
 
     /**
+     * Retrieves the optional value as a Double
+     *
+     * @return the value as a Double, or null if not found
+     */
+    public static Double toDouble(JsonNode node)
+    {
+        return node.asDouble();
+    }
+
+    /**
+     * Retrieves the optional value as a Double
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a Double, or null if not found
+     */
+    public static Double toDouble(JsonNode node, String path)
+    {
+        JsonNode value = toNode(node, path);
+
+        return value == null ? null : toDouble(value);
+    }
+
+    /**
+     * Retrieves the optional value as a Double
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a Double, or defaultValue if not found
+     */
+    public static Double toDouble(JsonNode node, String path, Double defaultValue)
+    {
+        Double value = toDouble(node, path);
+
+        return value == null ? defaultValue : value;
+    }
+
+    /**
      * Retrieves the required value as a Double
      *
      * @param path dot delimited path to value in yaml
@@ -280,6 +243,43 @@ public class FromNode
         requiredValue(path, value);
 
         return value;
+    }
+
+    /**
+     * Retrieves the optional value as a String
+     *
+     * @return the value as a String, or null if not found
+     */
+    public static String toStr(JsonNode node)
+    {
+        return node.asText();
+    }
+
+    /**
+     * Retrieves the optional value as a String
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a String, or null if not found
+     */
+    public static String toStr(JsonNode node, String path)
+    {
+        JsonNode value = toNode(node, path);
+
+        return value == null ? null : toStr(value);
+    }
+
+    /**
+     * Retrieves the optional value as a String
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a String, or defaultValue if not found
+     */
+    public static String toStr(JsonNode node, String path, String defaultValue)
+    {
+        String value = toStr(node, path);
+
+        return value == null ? defaultValue : value;
     }
 
     /**

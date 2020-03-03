@@ -206,50 +206,6 @@ public class Config
     }
 
     /**
-     * Retrieves the optional value as a Integer
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a Integer, or null if not found
-     */
-    public Integer getInt(String path)
-    {
-        return FromNode.toInt(configTree, path);
-    }
-
-    /**
-     * Retrieves the optional value as a Long
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a Long, or null if not found
-     */
-    public Long getLong(String path)
-    {
-        return FromNode.toLong(configTree, path);
-    }
-
-    /**
-     * Retrieves the optional value as a Double
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a Double, or null if not found
-     */
-    public Double getDouble(String path)
-    {
-        return FromNode.toDouble(configTree, path);
-    }
-
-    /**
-     * Retrieves the optional value as a String
-     *
-     * @param path dot delimited path to value in yaml
-     * @return the value as a String, or null if not found
-     */
-    public String getStr(String path)
-    {
-        return FromNode.toStr(configTree, path);
-    }
-
-    /**
      * Retrieves the optional value as a Boolean
      *
      * @param path         dot delimited path to value in yaml
@@ -259,54 +215,6 @@ public class Config
     public Boolean getBool(String path, Boolean defaultValue)
     {
         return FromNode.toBool(configTree, path, defaultValue);
-    }
-
-    /**
-     * Retrieves the optional value as a Integer
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a Integer, or defaultValue if not found
-     */
-    public Integer getInt(String path, Integer defaultValue)
-    {
-        return FromNode.toInt(configTree, path, defaultValue);
-    }
-
-    /**
-     * Retrieves the optional value as a Long
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a Long, or defaultValue if not found
-     */
-    public Long getLong(String path, Long defaultValue)
-    {
-        return FromNode.toLong(configTree, path, defaultValue);
-    }
-
-    /**
-     * Retrieves the optional value as a Double
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a Double, or defaultValue if not found
-     */
-    public Double getDouble(String path, Double defaultValue)
-    {
-        return FromNode.toDouble(configTree, path, defaultValue);
-    }
-
-    /**
-     * Retrieves the optional value as a String
-     *
-     * @param path         dot delimited path to value in yaml
-     * @param defaultValue value to be returned if path is not found
-     * @return the value as a String, or defaultValue if not found
-     */
-    public String getStr(String path, String defaultValue)
-    {
-        return FromNode.toStr(configTree, path, defaultValue);
     }
 
     /**
@@ -322,6 +230,29 @@ public class Config
     }
 
     /**
+     * Retrieves the optional value as a Integer
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a Integer, or null if not found
+     */
+    public Integer getInt(String path)
+    {
+        return FromNode.toInt(configTree, path);
+    }
+
+    /**
+     * Retrieves the optional value as a Integer
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a Integer, or defaultValue if not found
+     */
+    public Integer getInt(String path, Integer defaultValue)
+    {
+        return FromNode.toInt(configTree, path, defaultValue);
+    }
+
+    /**
      * Retrieves the required value as a Integer
      *
      * @param path dot delimited path to value in yaml
@@ -331,6 +262,29 @@ public class Config
     public Integer getReqInt(String path)
     {
         return FromNode.toReqInt(configTree, path);
+    }
+
+    /**
+     * Retrieves the optional value as a Long
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a Long, or null if not found
+     */
+    public Long getLong(String path)
+    {
+        return FromNode.toLong(configTree, path);
+    }
+
+    /**
+     * Retrieves the optional value as a Long
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a Long, or defaultValue if not found
+     */
+    public Long getLong(String path, Long defaultValue)
+    {
+        return FromNode.toLong(configTree, path, defaultValue);
     }
 
     /**
@@ -346,6 +300,29 @@ public class Config
     }
 
     /**
+     * Retrieves the optional value as a Double
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a Double, or null if not found
+     */
+    public Double getDouble(String path)
+    {
+        return FromNode.toDouble(configTree, path);
+    }
+
+    /**
+     * Retrieves the optional value as a Double
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a Double, or defaultValue if not found
+     */
+    public Double getDouble(String path, Double defaultValue)
+    {
+        return FromNode.toDouble(configTree, path, defaultValue);
+    }
+
+    /**
      * Retrieves the required value as a Double
      *
      * @param path dot delimited path to value in yaml
@@ -355,6 +332,29 @@ public class Config
     public Double getReqDouble(String path)
     {
         return FromNode.toReqDouble(configTree, path);
+    }
+
+    /**
+     * Retrieves the optional value as a String
+     *
+     * @param path dot delimited path to value in yaml
+     * @return the value as a String, or null if not found
+     */
+    public String getStr(String path)
+    {
+        return FromNode.toStr(configTree, path);
+    }
+
+    /**
+     * Retrieves the optional value as a String
+     *
+     * @param path         dot delimited path to value in yaml
+     * @param defaultValue value to be returned if path is not found
+     * @return the value as a String, or defaultValue if not found
+     */
+    public String getStr(String path, String defaultValue)
+    {
+        return FromNode.toStr(configTree, path, defaultValue);
     }
 
     /**

@@ -5,7 +5,7 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.skanders.jbel/jbel)](https://search.maven.org/search?q=g:%22com.skanders.jbel%22%20AND%20a:%22jbel%22)
 [![javadoc](https://javadoc.io/badge2/com.skanders.jbel/jbel/javadoc.svg)](https://javadoc.io/doc/com.skanders.jbel/jbel)
 [![Build Status](https://travis-ci.org/alexskanders/jBel.svg?branch=master)](https://travis-ci.org/alexskanders/jBel)
-
+[![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/alexskanders/jBel)](https://www.codefactor.io/repository/github/alexskanders/jbel/overview/master)
 Maven:
 
 ~~~xml

@@ -189,18 +189,18 @@ public class Result
     }
 
     @JsonIgnore
-    public SkandersException toThrowable()
-    {
-        return exception != null ? new SkandersException(exception) : new SkandersException(message);
-    }
-
-    @JsonIgnore
     public Response toResponse(MultivaluedHashMap<String, Object> headers)
     {
         PlainResultResponse response = new PlainResultResponse(this);
         response.headers(headers);
 
         return response.toResponse();
+    }
+
+    @JsonIgnore
+    public SkandersException toThrowable()
+    {
+        return exception != null ? new SkandersException(exception) : new SkandersException(message);
     }
 
     @Override
