@@ -273,17 +273,17 @@ POJO pojo = Config.getPOJO("pojo", POJO.class);
 ~~~json
 //student.json:
 {
-   student: {
-        id: 0,
-        name: "Student",
-        classes: [{
-            cs: {
-                name: "Computer Science",
-                units: 4
-            }
-            cs2: {
-                name: "Computer Science Two",
-                units: 4
+   "student": {
+        "id": 0,
+        "name": "Student",
+        "classes": [
+            "cs": {
+                "name": "Computer Science",
+                "units": 4
+            },
+            "cs2": {
+                "name": "Computer Science Two",
+                "units": 4
             }
         ]
    }
