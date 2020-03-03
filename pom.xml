@@ -4,7 +4,7 @@
 
     <groupId>com.skanders.jbel</groupId>
     <artifactId>jbel</artifactId>
-    <version>0.9.1-SNAPSHOT</version>
+    <version>0.9.0</version>
 
 
     <name>jBel</name>
@@ -39,7 +39,7 @@
         <connection>scm:git:ssh://git@github.com/alexskanders/jBel.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/alexskanders/jBel.git</developerConnection>
         <url>http://github.com/alexskanders/jBel/tree/master</url>
-        <tag>HEAD</tag>
+        <tag>jbel-0.9.0</tag>
     </scm>
 
     <dependencies>
