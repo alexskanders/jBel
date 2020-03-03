@@ -5,3 +5,4 @@ target
 *.iml
 *.versionsBackup
 /src/test/resources/db.txt
+*.properties
