@@ -1,11 +1,15 @@
-# jBel
-## The Java BackEnd Library
-
+# jBel: <sub><sub><sub><sub>The java Backend library
+    
 [![license badge](https://img.shields.io/github/license/alexskanders/jBel?logo=apache)](https://github.com/alexskanders/jBel/blob/master/LICENSE)
 [![Maven Central](https://img.shields.io/maven-central/v/com.skanders.jbel/jbel)](https://search.maven.org/search?q=g:%22com.skanders.jbel%22%20AND%20a:%22jbel%22)
 [![javadoc](https://javadoc.io/badge2/com.skanders.jbel/jbel/javadoc.svg)](https://javadoc.io/doc/com.skanders.jbel/jbel)
 [![Build Status](https://travis-ci.org/alexskanders/jBel.svg?branch=master)](https://travis-ci.org/alexskanders/jBel)
 [![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/alexskanders/jBel)](https://www.codefactor.io/repository/github/alexskanders/jbel/overview/master)
+
+jBel is collection of utilites targeted at making Backend development in Java easier, quicker, and cleaner. jBel includes utils to help with SQL creation with resource managment, JSON Type conversions, backend configurations, RESTful client calls between services, and much more.
+<br/>
+
+# Repositories
 
 Maven:
 
@@ -21,20 +25,22 @@ Gradle:
 ~~~java
     implementation 'com.skanders.jbel:jbel:0.9.0'
 ~~~
+<br/>
 
-## Tools
+# Tools
 
-- [Arg](#Arg)
-- [AtSQL](#AtSQL)
-- [Bytes](#Bytes)
-- [Config](#Config)
-- [Convert](#Convert)
-- [Model](#Model)
-- [Result](#Result)
-- [Socket](#Socket)
-- [Worker](#Worker)
+- [💬Arg](#Arg)
+- [🤖AtSQL](#AtSQL)
+- [📝Bytes](#Bytes)
+- [🎛Config](#Config)
+- [💱Convert](#Convert)
+- [📦Model](#Model)
+- [🧾Result](#Result)
+- [📩Socket](#Socket)
+- [🛠Worker](#Worker)
+<br/>
 
-## Arg
+# 💬 Arg
 
 #### Args 
 
@@ -79,8 +85,11 @@ public static main void(String[] args)
     // password cleared here (Make sure to copy if needed!)
 }
 ~~~
+<br/>
+<br/>
+<br/>
 
-## AtSQL
+# 🤖 AtSQL
 
 #### AtSQLFactory
 
@@ -116,7 +125,7 @@ else
 ~~~java
 AtSQLQuery atSQLQuery = atSQL
     .createQuery("SELECT name FROM student WHERE id = ?;")
-    .setList(Types.INTEGER, 0); // may use .setList(Object...) or .set(Type, Object) for each value
+    .set(Types.INTEGER, 0); // may use .setList(Object...) or .set(Type, Object) for each value
 
 try (Resulted<AtSQLResult> resultedQuery = atSQLQuery.executeQuery()) // Closes connectiontion after work
 {
@@ -177,8 +186,11 @@ else {
         System.out.println("Status: " + i);
 }
 ~~~
+<br/>
+<br/>
+<br/>
 
-## Bytes
+# 📝 Bytes
 
 #### SecureBytes
 
@@ -193,8 +205,11 @@ byte[] decodedBytes = SecureBytes.decode16(base16);
 
 String base32 = SecureBytes.gen32(64);
 ~~~
+<br/>
+<br/>
+<br/>
 
-## Config
+# 🎛 Config
 
 #### Config
 
@@ -237,8 +252,11 @@ List<Integer> list = Config.getList("list", Integer.class);
 Map<String, Integer> map = Config.getMap("map", String.class, Integer.class);
 POJO pojo = Config.getPOJO("pojo", POJO.class);
 ~~~
+<br/>
+<br/>
+<br/>
 
-## Convert
+# 🎛 Convert
 
 #### FromJson
 
@@ -299,8 +317,11 @@ Resulted<POJO> stringPOJO = ToPojo.fromJSON("{ \"student\": {}}", POJO.class));
 if (stringPOJO.notValid())
     System.err.println(stringPOJO.result().message());
 ~~~
+<br/>
+<br/>
+<br/>
 
-## Model
+# 📦 Model
 
 #### RequestModel 
 - Abstract base for incoming REST requests
@@ -375,8 +396,11 @@ public Response studentRequest(StudentRequest request)
     return response.toResponse();
 }
 ~~~
+<br/>
+<br/>
+<br/>
 
-## Result
+# 🧾 Result
 
 #### Result 
 - Small Object containing either Result.VALID or a custom Result object with a code, message, and HTTP Status
@@ -464,8 +488,11 @@ public Response divide(@QueryParam("a") Integer a, @QueryParam("b") Integer b)
     return response.toResponse();
 }
 ~~~
+<br/>
+<br/>
+<br/>
 
-## Socket
+# 📩 Socket
 
 #### HttpSocketFactory 
 - Create multiple HttpSockets for diffrent endpoints of the same service quickly
@@ -516,8 +543,11 @@ try (Response response = sockFactory.createSocket("/postEndpoint")
 }
 ~~~
 
+<br/>
+<br/>
+<br/>
 
-## Worker
+# 🛠 Worker
 
 ### CycleWorker
 - Make time based cycle workers
@@ -525,8 +555,11 @@ try (Response response = sockFactory.createSocket("/postEndpoint")
 ### TaskWorker
 - Make queue based task workers
 
+<br/>
+<br/>
+<br/>
 
-#### Dependencies
+# 🔗 Dependencies
 - [Javax WS RS api](https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api)
 - [Jackson Databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
 - [Jackson JAXRS JSON](https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider)
