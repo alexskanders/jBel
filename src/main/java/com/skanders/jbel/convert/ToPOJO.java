@@ -37,7 +37,7 @@ public class ToPOJO
     public static <T> Resulted<T> fromNode(
             JsonNode jsonNode, Class<T> className, DeserializationFeature... feature)
     {
-        return fromNode(Mapper.forJson(), jsonNode, className, feature);
+        return fromJsonNode(Mapper.forJson(), jsonNode, className, feature);
     }
 
     public static <T> Resulted<T> fromJson(
@@ -159,7 +159,7 @@ public class ToPOJO
         }
     }
 
-    private static <T> Resulted<T> fromNode(
+    private static <T> Resulted<T> fromJsonNode(
             ObjectMapper mapper, JsonNode node, Class<T> className, DeserializationFeature... feature)
     {
         try {
