@@ -30,8 +30,8 @@ Gradle:
 # Tools
  | 🧰 | Link | Description |
  | -- | -- | -- |
- | 💬 | [Arg](#Arg) | Easily parse startup arguments |
- | 🤖 | [AtSQL](#AtSQL) | Autonomus SQL for easier SQL statments with Resouce management with HikariCP |
+ | 💬 | [Arg](#💬-Arg) | Easily parse startup arguments |
+ | 🤖 | [AtSQL](#🤖_AtSQL:_<sub>_Autonomous_SQL) | Autonomus SQL for easier SQL statments with Resouce management with HikariCP |
  | 📝 | [Bytes](#Bytes) | Generate, Encode, Decode bytes and random bytes with 16, 32, 64 bases provided by Google Guava |
  | 🎛 | [Config](#Config) | Config file parsers with easy decryption with JASYPT |
  | 💱 | [Convert](#Convert) | Convert from and to JsonNodes and POJO's to many primitive types |
