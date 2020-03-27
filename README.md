@@ -30,15 +30,15 @@ Gradle:
 # Tools
  | 🧰 | Link | Description |
  | -- | -- | -- |
- | 💬 | [Arg](#💬) | Easily parse startup arguments |
- | 🤖 | [AtSQL](#🤖) | Autonomus SQL for easier SQL statments with Resouce management with HikariCP |
- | 📝 | [Bytes](#Bytes) | Generate, Encode, Decode bytes and random bytes with 16, 32, 64 bases provided by Google Guava |
- | 🎛 | [Config](#Config) | Config file parsers with easy decryption with JASYPT |
- | 💱 | [Convert](#Convert) | Convert from and to JsonNodes and POJO's to many primitive types |
- | 📦 | [Model](#Model) | Package Backend request and responses easily with Abstract model bases |
- | 🧾 | [Result](#Result) | Manage handler results and notify users quickly |
- | 📩 | [Socket](#Socket) | Communicate between RESTful services easier and quickly |
- | 🛠 | [Worker](#Worker) | Automate timed, or task based jobs easily |
+ | 💬 | [Arg](#-arg) | Easily parse startup arguments |
+ | 🤖 | [AtSQL](#-atsql--autonomous-sql) | Autonomus SQL for easier SQL statments with Resouce management with HikariCP |
+ | 📝 | [Bytes](#-bytes) | Generate, Encode, Decode bytes and random bytes with 16, 32, 64 bases provided by Google Guava |
+ | 🎛 | [Config](#-config) | Config file parsers with easy decryption with JASYPT |
+ | 💱 | [Convert](#-convert) | Convert from and to JsonNodes and POJO's to many primitive types |
+ | 📦 | [Model](#-model) | Package Backend request and responses easily with Abstract model bases |
+ | 🧾 | [Result](#-result) | Manage handler results and notify users quickly |
+ | 📩 | [Socket](#-socket) | Communicate between RESTful services easier and quickly |
+ | 🛠 | [Worker](#-worker) | Automate timed, or task based jobs easily |
 <br/>
 
 # 💬 Arg
